@@ -5,13 +5,13 @@ VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesteMicroServiços", "TesteMicroServiços\TesteMicroServiços.csproj", "{7F8EEDD2-37B0-4163-9BEE-1A8865294ADF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService", "OrderServices\OrderService.csproj", "{F14656C9-0442-4072-A124-A25B3CF1AD8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService", "OrderServices\OrderService.csproj", "{F14656C9-0442-4072-A124-A25B3CF1AD8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotService", "OcelotService\OcelotService.csproj", "{A3E49A1C-589D-46E6-8C4E-07EA2AF1C3D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ocelot.API", "OcelotService\Ocelot.API.csproj", "{A3E49A1C-589D-46E6-8C4E-07EA2AF1C3D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroServices.Shared", "MicroServices.Shared\MicroServices.Shared.csproj", "{385A1A8C-497A-498F-9B4E-778D3EB842A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroServices.Shared", "MicroServices.Shared\MicroServices.Shared.csproj", "{385A1A8C-497A-498F-9B4E-778D3EB842A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtAuthentication", "JwtAuthentication\JwtAuthentication.csproj", "{04DE1CAB-8AC1-4970-A397-9CE3BFAB4A26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtAuthentication", "JwtAuthentication\JwtAuthentication.csproj", "{04DE1CAB-8AC1-4970-A397-9CE3BFAB4A26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

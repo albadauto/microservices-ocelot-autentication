@@ -2,6 +2,8 @@ using JwtAuthentication.Config;
 using JwtAuthentication.Context;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +13,6 @@ string connection = builder.Configuration.GetConnectionString("Database");
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddEntityFrameworkSqlServer().AddDbContext<SqlServerContext>(o => o.UseSqlServer(connection));
-
 
 var app = builder.Build();
 
@@ -26,7 +27,8 @@ app.UseHttpsRedirection();
 
 app.MapPost("/authentication/login", () =>
 {
-    return Results.Ok(new { token = JwtGenerator.GenerateTokenString() });
+
+    return Results.Ok(new { token = new JwtGenerator().GenerateTokenString() });
 });
 
 

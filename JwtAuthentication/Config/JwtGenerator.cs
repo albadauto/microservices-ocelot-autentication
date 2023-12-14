@@ -1,19 +1,29 @@
-﻿using System.IdentityModel.Tokens.Jwt;
+﻿using MicroServices.Shared.JWT;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Text;
 
 namespace JwtAuthentication.Config
 {
-    public static class JwtGenerator
+    public class JwtGenerator
     {
-        public static string GenerateTokenString()
+        public string GenerateTokenString()
         {
-            IEnumerable<Claim> claims = new List<Claim>
+            var handler = new JwtSecurityTokenHandler();
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(TokenConfig.TOKENSECRET));
+            var descriptor = new SecurityTokenDescriptor
             {
-                new Claim(ClaimTypes.Email, "teste@teste")
-            };
-            var securityToken = new JwtSecurityToken(claims:claims);
-            string tokenString = new JwtSecurityTokenHandler().WriteToken(securityToken);
-            return tokenString;
+                Subject = new ClaimsIdentity(new[]
+                {
+                    new Claim(ClaimTypes.Email, "teste@teste")
+                }),
+                Expires = DateTime.UtcNow.AddHours(2),
+                SigningCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256)
+        };
+            var tokenString = handler.CreateToken(descriptor);
+            var token = handler.WriteToken(tokenString);
+            return token;
         }
     }
 }
